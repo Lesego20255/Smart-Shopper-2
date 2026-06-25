@@ -12,6 +12,11 @@ const upload = multer({ dest: 'uploads/' });
 app.use(cors());
 app.use(express.json());
 
+// ✅ WELCOME ROUTE - Fixes "Cannot GET /"
+app.get('/', (req, res) => {
+  res.send('Smart Shopper API is running! 🚀');
+});
+
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
 // ═══════════════════════════════════════════════════════════════
